@@ -1,0 +1,8 @@
+{
+  "name": "linkedin",
+  "version": "0.0.0",
+  "dependencies": {
+    "taggle.js": "~1.5.1"
+  },
+  "devDependencies": {}
+}

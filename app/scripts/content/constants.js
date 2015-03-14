@@ -1,5 +1,5 @@
 /**
  * Created by skaczorowski on 10.03.15.
  */
-var NAME_EL = '.fullname';
+var NAME_EL = '.full-name';
 var LOCAL_EL = '.locality a';

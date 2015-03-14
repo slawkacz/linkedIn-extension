@@ -1,0 +1,31 @@
+.blurry {
+	-webkit-filter: blur(5px); 
+	-moz-filter: 
+	blur(5px); 
+	-o-filter: blur(5px); 
+	-ms-filter: blur(5px); 
+	filter: blur(5px);
+}
+#linkedInExt-personForm {
+	position: fixed;
+	height:0;
+	width:0;
+	left:0
+	bottom:0;
+	margin: 0;	
+	display:none;
+	z-index: 1000;
+	padding:20px;
+	background:black;
+	-webkit-transition: left,top 1s cubic-bezier(1,.27,.02,.99); 
+}
+#linkedInExt-personForm.show {
+	display: block;
+	width: 300px;
+	height: 300px;
+	left:50%;
+	bottom:50%;
+	margin-left:-150px;
+	margin-bottom:-150px;
+	
+}

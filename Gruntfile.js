@@ -113,7 +113,7 @@ module.exports = function (grunt) {
       all: [
         'Gruntfile.js',
         '<%= config.app %>/scripts/{,*/}*.js',
-        '!<%= config.app %>/scripts/vendor/*',
+        '!<%= config.app %>/scripts/libs/*',
         'test/spec/{,*/}*.js'
       ]
     },
@@ -239,6 +239,8 @@ module.exports = function (grunt) {
             'images/{,*/}*.{webp,gif}',
             '{,*/}*.html',
             'styles/{,*/}*.css',
+            'scripts/{,*/}*.html',
+            'scripts/{,*/}*.css',
             'styles/fonts/{,*/}*.*',
             '_locales/{,*/}*.json',
           ]
@@ -297,7 +299,7 @@ module.exports = function (grunt) {
 
   grunt.registerTask('debug', function () {
     grunt.task.run([
-      'jshint',
+      // 'jshint',
       'concurrent:chrome',
       'connect:chrome',
       'watch'

@@ -1,6 +1,6 @@
 {
   "name": "__MSG_appName__",
-  "version": "0.0.1",
+  "version": "0.0.4",
   "manifest_version": 2,
   "description": "__MSG_appDescription__",
   "icons": {
@@ -19,7 +19,9 @@
       "matches": [
         "https://www.linkedin.com/profile/*"
       ],
-      "css":[ "scripts/content/templates.css"],
+      "css": [
+        "scripts/content/templates.css"
+      ],
       "js": [
         "scripts/content/constants.js",
         "scripts/content/contentscript.js"

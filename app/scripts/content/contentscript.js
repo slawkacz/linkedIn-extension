@@ -16,14 +16,24 @@
     };
     var editPerson = function(e) {
         e.preventDefault();
+        console.log(this);
+    };
+    var propagateTemplates = function() {
+        return new Promise(function(resolve, reject) {
+            plusModal = Transparency.render(document.querySelector('#linkedInExt-personForm'), Profile);
+            resolve(true);
+        });
     };
     var attachTemplateEvents = function() {
-        plusModal = document.querySelector('#linkedInExt-personForm');
         plusModal.addEventListener('submit', editPerson);
         plusModal.querySelector('.linkedInExt-close').addEventListener('click', function(e) {
             e.preventDefault();
             plusModal.classList.remove('show');
         });
+        console.log('fdsassdafsafas');
+        console.log(new Taggle('linkedInExt-tags', {
+            tags: ['fdsfs sfa as','fsa sf sdfas']
+        }));
     };
     var Profile = {
         name: null,
@@ -50,8 +60,7 @@
             id: profileId
         }, function(res) {
             setProfile(res);
-            getTemplates().then(attachTemplateEvents);
-            attachTemplateEvents();
+            getTemplates().then(propagateTemplates).then(attachTemplateEvents);
             addPlusButton();
         });
     };

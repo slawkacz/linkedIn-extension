@@ -23,6 +23,8 @@
         "scripts/content/templates.css"
       ],
       "js": [
+        "scripts/libs/taggle.js/dist/taggle.min.js",
+        "scripts/libs/transparency/dist/transparency.min.js",
         "scripts/content/constants.js",
         "scripts/content/contentscript.js"
       ],

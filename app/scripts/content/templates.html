@@ -1,7 +1,7 @@
 <div id="linkedInExt-templates">
 	<form id="linkedInExt-personForm">
 		<button class="linkedInExt-close">x</button>
-		<div class="linkedInExt-name"><h2>{name}</h2></div>
+		<div class="linkedInExt-name"><h2 data-bind="name"></h2></div>
 		<div class="linkedInExt-status">
 			<button value="lead">Lead</button>
 			<button value="talk">Talk</button>
@@ -9,18 +9,19 @@
 			<button value="deal">Deal</button>
 		</div>
 		<div class="linkedInExt-email">
-			<input name="email" placeholder="Email" />
+			<input name="email" placeholder="Email" data-bind="email" />
 		</div>
 		<div class="linkedInExt-city">
-			<input name="city" placeholder="City" />
+			<input name="city" placeholder="City" data-bind="city"/>
 		</div>
-		<div class="linkedInExt-tags">
+		<div id="linkedInExt-tags">
 		</div>
 		<div class="linkedInExt-comment">
-			<textarea name="comment"></textarea>
+			<textarea name="comment" data-bind="comment"></textarea>
 		</div>
+		<button type="submit">Save</button>
 	</form>
-	<div id="linkedInExt-personPreview">
+	<!-- <div id="linkedInExt-personPreview">
 		<div class="linkedInExt-personal">
 			<button class="linkedInExt-close">edit</button>
 			<div class="linkedInExt-name"><h2>{name}</h2></div>
@@ -30,5 +31,5 @@
 		<div class="linkedInExt-city">{city}</div>
 		<div class="linkedInExt-tags">{tags}</div>
 		<div class="linkedInExt-comment">{comment}</div>
-	</div>
+	</div> -->
 </div>

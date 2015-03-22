@@ -1,6 +1,6 @@
 {
   "name": "__MSG_appName__",
-  "version": "0.0.4",
+  "version": "0.0.6",
   "manifest_version": 2,
   "description": "__MSG_appDescription__",
   "icons": {
@@ -20,15 +20,16 @@
         "https://www.linkedin.com/profile/*"
       ],
       "css": [
+        "scripts/libs/taggle.js/assets/css/taggle.min.css",
         "scripts/content/templates.css"
       ],
       "js": [
-        "scripts/libs/taggle.js/dist/taggle.min.js",
+        "scripts/libs/taggle.js/src/taggle.js",
         "scripts/libs/transparency/dist/transparency.min.js",
         "scripts/content/constants.js",
         "scripts/content/contentscript.js"
       ],
-      "run_at": "document_end",
+      "run_at": "document_idle",
       "all_frames": false
     }
   ],

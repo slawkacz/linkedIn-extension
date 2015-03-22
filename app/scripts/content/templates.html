@@ -1,35 +1,37 @@
 <div id="linkedInExt-templates">
-	<form id="linkedInExt-personForm">
-		<button class="linkedInExt-close">x</button>
-		<div class="linkedInExt-name"><h2 data-bind="name"></h2></div>
-		<div class="linkedInExt-status">
-			<button value="lead">Lead</button>
-			<button value="talk">Talk</button>
-			<button value="reject">Reject</button>
-			<button value="deal">Deal</button>
-		</div>
-		<div class="linkedInExt-email">
-			<input name="email" placeholder="Email" data-bind="email" />
-		</div>
-		<div class="linkedInExt-city">
-			<input name="city" placeholder="City" data-bind="city"/>
-		</div>
-		<div id="linkedInExt-tags">
-		</div>
-		<div class="linkedInExt-comment">
-			<textarea name="comment" data-bind="comment"></textarea>
-		</div>
-		<button type="submit">Save</button>
-	</form>
-	<!-- <div id="linkedInExt-personPreview">
-		<div class="linkedInExt-personal">
-			<button class="linkedInExt-close">edit</button>
-			<div class="linkedInExt-name"><h2>{name}</h2></div>
-			<div class="linkedInExt-email"><h3>{email}</h3></div>
-		</div>>
-		<div class="linkedInExt-status">{status}</div>
-		<div class="linkedInExt-city">{city}</div>
-		<div class="linkedInExt-tags">{tags}</div>
-		<div class="linkedInExt-comment">{comment}</div>
-	</div> -->
+    <form id="linkedInExt-personForm">
+        <div class="linkedInExt-close">x</div>
+        <div class="linkedInExt-personal">
+            <div class="linkedInExt-name"><h2 data-bind="name"></h2></div>
+            <div class="linkedInExt-email input clearfix">
+                <input class="linkedInExt-input" name="email" type="email" placeholder="Email" data-bind="email" />
+            </div>
+        </div>
+        <select class="linkedInExt-status" name="status">
+            <option value="lead">Lead</option>
+            <option value="talk">Talk</option>
+            <option value="reject" >Reject</option>
+            <option value="deal" >Deal</option>
+        </select>
+
+        <div class="linkedInExt-city input  clearfix">
+            <input name="city" class="linkedInExt-input" placeholder="City" data-bind="city"/>
+        </div>
+        <div id="linkedInExt-tags" class="input textarea clearfix"></div>
+        <div class="linkedInExt-comment input clearfix">
+            <textarea class="linkedInExt-input" name="comment" data-bind="comment" placeholder="Comment"></textarea>
+        </div>
+        <button class="linkedInExt-submit" type="submit">Save</button>
+    </form>
+    <div id="linkedInExt-personPreview">
+        <div class="linkedInExt-personal">
+            <button class="linkedInExt-close">edit</button>
+            <div class="linkedInExt-name"><h2>{name}</h2></div>
+            <div class="linkedInExt-email"><h3>{email}</h3></div>
+        </div>>
+        <div class="linkedInExt-status">{status}</div>
+        <div class="linkedInExt-city">{city}</div>
+        <div class="linkedInExt-tags">{tags}</div>
+        <div class="linkedInExt-comment">{comment}</div>
+    </div>
 </div>

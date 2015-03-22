@@ -33,7 +33,7 @@ module.exports = function (grunt) {
         tasks: ['bowerInstall']
       },
       js: {
-        files: ['<%= config.app %>/scripts/{,*/}*.js'],
+        files: ['<%= config.app %>/scripts/{,*/}*.js','<%= config.app %>/scripts/libs/taggle.js/src/{,*/}*.js'],
         tasks: ['jshint'],
         options: {
           livereload: '<%= connect.options.livereload %>'
@@ -43,7 +43,7 @@ module.exports = function (grunt) {
         files: ['Gruntfile.js']
       },
       styles: {
-        files: ['<%= config.app %>/styles/{,*/}*.css'],
+        files: ['<%= config.app %>/styles/{,*/}*.css','<%= config.app %>/scripts/{,*/}*.css'],
         tasks: [],
         options: {
           livereload: '<%= connect.options.livereload %>'

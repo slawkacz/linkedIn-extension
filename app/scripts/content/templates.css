@@ -1,31 +1,84 @@
 .blurry {
-	-webkit-filter: blur(5px); 
-	-moz-filter: 
-	blur(5px); 
-	-o-filter: blur(5px); 
-	-ms-filter: blur(5px); 
-	filter: blur(5px);
+    -webkit-filter: blur(5px);
+    -moz-filter: blur(5px);
+    -o-filter: blur(5px);
+    -ms-filter: blur(5px);
+    filter: blur(5px);
+}
+#linkedInExt-personForm *:focus {
+    outline: none;
 }
 #linkedInExt-personForm {
-	position: fixed;
-	height:0;
-	width:0;
-	left:0
-	bottom:0;
-	margin: 0;	
-	display:none;
-	z-index: 1000;
-	padding:20px;
-	background:black;
-	-webkit-transition: left,top 1s cubic-bezier(1,.27,.02,.99); 
+    position: fixed;
+    height: 0;
+    width: 0;
+    left: 0 bottom: 0;
+    margin: 0;
+    display: none;
+    z-index: 1000;
+    padding: 20px;
+    background: rgba(0, 0, 0, 0.9);
+    -webkit-transition: left 1s cubic-bezier(1, .27, .02, .99);
+}
+#linkedInExt-personForm > div {
+    margin-top: 10px;
 }
 #linkedInExt-personForm.show {
-	display: block;
-	width: 300px;
-	height: 300px;
-	left:50%;
-	bottom:50%;
-	margin-left:-150px;
-	margin-bottom:-150px;
-	
+    display: block;
+    width: 400px;
+    height: auto;
+    left: 50%;
+    bottom: 50%;
+    margin-left: -200px;
+    margin-bottom: -175px;
+}
+.linkedInExt-close {
+    float: right;
+    border: none;
+    margin: none;
+    padding: 5px;
+    color: #fff;
+    background: transparent;
+    font-weight: bold;
+    cursor: pointer;
+}
+.linkedInExt-name h2 {
+    font-size: 18px;
+    width: 100%;
+    padding: 5px 0;
+    color: #fff;
+    margin-bottom: 5px;
+    box-shadow: none;
+    text-shadow: none;
+}
+.linkedInExt-status button {
+    border: 0;
+    padding: 5px 10px;
+}
+.linkedInExt-input {
+    width: 97%;
+    border: 1px solid #ddd;
+    padding: 5px;
+    background: #fff;
+    color: rgb(85, 85, 85);
+}
+textarea.linkedInExt-input {
+    height: 56px;
+    resize: none;
+}
+.linkedInExt-submit {
+    margin-top: 10px;
+    float: right;
+    border: 0;
+    background: #00897b;
+    color: #fff;
+    padding: 10px;
+}
+.linkedInExt-personal {
+    margin-bottom: 10px;
+    border-bottom: 1px solid #dadada;
+    padding-bottom: 10px;
+}
+#linkedInExt-tags {
+	border-radius: 0;
 }

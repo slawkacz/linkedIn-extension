@@ -2,11 +2,16 @@
 (function() {
     var name = document.querySelector('.full-name');
     var plusModal = false;
+    var taggle = null;
     var showPlusModal = function() {
         if (!plusModal) {
             plusModal = document.querySelector('#linkedInExt-personForm');
         }
         plusModal.classList.add('show');
+        document.querySelector('#linkedInExt-tags').innerHTML = '';
+        taggle = new Taggle('linkedInExt-tags', {
+            tags: Profile.tags
+        });
     };
     var addPlusButton = function() {
         var button = document.createElement('button');
@@ -16,12 +21,24 @@
     };
     var editPerson = function(e) {
         e.preventDefault();
-        console.log(this);
+        Profile.email = this.querySelector('.linkedInExt-email input').value;
+        Profile.status = this.querySelector('.linkedInExt-status').value;
+        Profile.city = this.querySelector('.linkedInExt-city input').value;
+        Profile.comment = this.querySelector('.linkedInExt-comment textarea').value;
+        Profile.tags = taggle.getTags().values;
+        chrome.runtime.sendMessage({
+            msg: 'setProfile',
+            profile: JSON.stringify(Profile)
+        }, function(res) {
+            plusModal.classList.remove('show');   
+        });
+        
     };
     var propagateTemplates = function() {
-        return new Promise(function(resolve, reject) {
+        return new Promise(function(resolve) {
             plusModal = Transparency.render(document.querySelector('#linkedInExt-personForm'), Profile);
             resolve(true);
+
         });
     };
     var attachTemplateEvents = function() {
@@ -30,12 +47,9 @@
             e.preventDefault();
             plusModal.classList.remove('show');
         });
-        console.log('fdsassdafsafas');
-        console.log(new Taggle('linkedInExt-tags', {
-            tags: ['fdsfs sfa as','fsa sf sdfas']
-        }));
     };
     var Profile = {
+        id:null,
         name: null,
         email: null,
         city: null,
@@ -44,17 +58,17 @@
         tags: [],
     };
     var setProfile = function(data) {
-        console.log(NAME_EL);
         if (!data) {
             Profile.name = document.querySelector(NAME_EL).textContent;
             Profile.city = document.querySelector(LOCAL_EL).textContent;
         } else {
             Profile = data;
-        };
+        }
         console.log(Profile);
     };
     var init = function() {
-        var profileId = window.location.search.match(/id=(\d+)/)[1]
+        var profileId = window.location.search.match(/id=(\d+)/)[1];
+        Profile.id = profileId;
         chrome.runtime.sendMessage({
             msg: 'getProfile',
             id: profileId

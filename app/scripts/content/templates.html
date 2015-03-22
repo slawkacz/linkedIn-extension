@@ -25,13 +25,12 @@
     </form>
     <div id="linkedInExt-personPreview">
         <div class="linkedInExt-personal">
-            <button class="linkedInExt-close">edit</button>
-            <div class="linkedInExt-name"><h2>{name}</h2></div>
-            <div class="linkedInExt-email"><h3>{email}</h3></div>
-        </div>>
-        <div class="linkedInExt-status">{status}</div>
-        <div class="linkedInExt-city">{city}</div>
-        <div class="linkedInExt-tags">{tags}</div>
-        <div class="linkedInExt-comment">{comment}</div>
+            <div class="linkedInExt-name"><h2 data-bind="name"></h2></div>
+            <div class="linkedInExt-email"><h3 data-bind="email"></h3></div>
+        </div>
+        <div class="linkedInExt-status">Status: <span  data-bind="status"></span></div>
+        <div class="linkedInExt-city" >City: <span data-bind="city"></span></div>
+        <div class="linkedInExt-tags" >Tags: <span data-bind="tags"></span></div>
+        <div class="linkedInExt-comment">Comment: <span data-bind="comment"></span></div>
     </div>
 </div>

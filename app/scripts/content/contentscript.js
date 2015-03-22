@@ -2,6 +2,7 @@
 (function() {
     var name = document.querySelector('.full-name');
     var plusModal = false;
+    var previewModal = false;
     var taggle = null;
     var showPlusModal = function() {
         if (!plusModal) {
@@ -26,17 +27,24 @@
         Profile.city = this.querySelector('.linkedInExt-city input').value;
         Profile.comment = this.querySelector('.linkedInExt-comment textarea').value;
         Profile.tags = taggle.getTags().values;
+        Profile.added = true;
         chrome.runtime.sendMessage({
             msg: 'setProfile',
             profile: JSON.stringify(Profile)
         }, function(res) {
             plusModal.classList.remove('show');   
         });
+
         
     };
     var propagateTemplates = function() {
         return new Promise(function(resolve) {
             plusModal = Transparency.render(document.querySelector('#linkedInExt-personForm'), Profile);
+            console.log(Profile);
+            if(Profile.added) {
+                previewModal = Transparency.render(document.querySelector('#linkedInExt-personPreview'), Profile);
+                previewModal.classList.add('show');
+            }
             resolve(true);
 
         });
@@ -56,6 +64,7 @@
         status: null,
         comment: null,
         tags: [],
+        added:false
     };
     var setProfile = function(data) {
         if (!data) {

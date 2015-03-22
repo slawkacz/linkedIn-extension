@@ -82,3 +82,18 @@ textarea.linkedInExt-input {
 #linkedInExt-tags {
 	border-radius: 0;
 }
+#linkedInExt-personPreview {
+	bottom:0;
+	right:0;
+	z-index:9999;
+	position:fixed;
+	width:300px;
+	height:auto;
+	color:#fff;
+	display: none;
+	background: #000;
+}
+
+#linkedInExt-personPreview.show{
+	display: block;
+}

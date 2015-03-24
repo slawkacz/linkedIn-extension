@@ -33,7 +33,7 @@ module.exports = function (grunt) {
         tasks: ['bowerInstall']
       },
       js: {
-        files: ['<%= config.app %>/scripts/{,*/}*.js','<%= config.app %>/scripts/libs/taggle.js/src/{,*/}*.js'],
+        files: ['<%= config.app %>/scripts/{,*/}*.js','<%= config.app %>/scripts/libs/{,*/}*.js'],
         tasks: ['jshint'],
         options: {
           livereload: '<%= connect.options.livereload %>'
@@ -235,6 +235,8 @@ module.exports = function (grunt) {
           cwd: '<%= config.app %>',
           dest: '<%= config.dist %>',
           src: [
+            'scripts/profiles/**',
+            'scripts/libs/**',
             '*.{ico,png,txt}',
             'images/{,*/}*.{webp,gif}',
             '{,*/}*.html',

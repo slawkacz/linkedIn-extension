@@ -1,6 +1,6 @@
 angular.module('App').controller('ProfilesCtrl', function($scope, Profiles){
 	$scope.profiles = [];
-	$scope.searchText = "piotr";
+	$scope.searchText = "";
 	 Profiles.getAll().then(function(profiles){
 		$scope.profiles = profiles;
 	});

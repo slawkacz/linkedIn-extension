@@ -28,25 +28,19 @@
         Profile.comment = this.querySelector('.linkedInExt-comment textarea').value;
         Profile.tags = taggle.getTags().values;
         Profile.added = true;
-        chrome.runtime.sendMessage({
-            msg: 'setProfile',
-            profile: JSON.stringify(Profile)
-        }, function(res) {
-            plusModal.classList.remove('show');   
+        Storage.setProfile(Profile, function(res) {
+            console.log(res);
+            plusModal.classList.remove('show');
         });
-
-        
     };
     var propagateTemplates = function() {
         return new Promise(function(resolve) {
             plusModal = Transparency.render(document.querySelector('#linkedInExt-personForm'), Profile);
-            console.log(Profile);
-            if(Profile.added) {
+            if (Profile.added) {
                 previewModal = Transparency.render(document.querySelector('#linkedInExt-personPreview'), Profile);
                 previewModal.classList.add('show');
             }
             resolve(true);
-
         });
     };
     var attachTemplateEvents = function() {
@@ -57,31 +51,30 @@
         });
     };
     var Profile = {
-        id:null,
+        id: null,
+        img:null,
         name: null,
         email: null,
         city: null,
         status: null,
         comment: null,
         tags: [],
-        added:false
+        added: false
     };
     var setProfile = function(data) {
         if (!data) {
             Profile.name = document.querySelector(NAME_EL).textContent;
             Profile.city = document.querySelector(LOCAL_EL).textContent;
+            Profile.img = document.querySelector(IMG_EL).src;
         } else {
             Profile = data;
         }
-        console.log(Profile);
     };
     var init = function() {
         var profileId = window.location.search.match(/id=(\d+)/)[1];
         Profile.id = profileId;
-        chrome.runtime.sendMessage({
-            msg: 'getProfile',
-            id: profileId
-        }, function(res) {
+        Storage.getProfile(profileId, function(res) {
+            console.log(res);
             setProfile(res);
             getTemplates().then(propagateTemplates).then(attachTemplateEvents);
             addPlusButton();

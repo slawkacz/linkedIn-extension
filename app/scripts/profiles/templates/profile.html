@@ -1,0 +1,19 @@
+
+<div class="row">
+    <img src="{{profile.img}}" alt="" class="circle col s3">
+    <div class="col s9">
+        <h2 class="title">{{profile.name}}</h2>
+        <p><a href="mailto:{{profile.email}}">{{profile.email}}</a></p>
+        <p>City:    {{profile.city}} </p>
+        <p>Status: {{profile.status}} </p>
+        <ul>
+        <li ng-repeat="tag in profile.tags" class="tag">
+            <button class="{{tag}}" ng-click="updateStatus(profile)">{{tag}}</button>
+        </li>
+    </ul>
+    <p>
+    {{profile.comment}}
+    </p>
+</div>
+<a href="#!" class="secondary-content"><i class="mdi-action-grade"></i></a>
+</div>

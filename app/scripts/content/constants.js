@@ -3,3 +3,4 @@
  */
 var NAME_EL = '.full-name';
 var LOCAL_EL = '.locality a';
+var IMG_EL = '.profile-picture img';
